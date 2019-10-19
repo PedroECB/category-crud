@@ -12,11 +12,10 @@
 */
 
 
-Route::get('/', function(){
-	return view('index');
-})->name('home');
+Route::get('/', 'CategoriaController@index')->name('home');
 
 
-Route::get('/create', function(){
-	return view('create');
-})->name('create');
+Route::get('/create', 'CategoriaController@create')->name('create');
+
+
+Route::post('/create', 'CategoriaController@storage')->name('storage');

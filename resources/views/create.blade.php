@@ -15,7 +15,19 @@
 						<h5 class="card-title font-weight-bold text-muted text-center">Nova categoria</h5>
 					</div>
 					<div class="card-body">
-						
+						<form action="{{ route('storage') }}" method="POST" accept-charset="utf-8">
+							@csrf
+							<label for="cCategoria" class="font-weight-bold mb-0 text-info">Categoria: </label>
+							<input type="text" id="cCategoria" name="categoria" maxlength="25" class="form-control form-control-sm mb-2" required="">
+
+							<label for="cDescricao" class="font-weight-bold mb-0 text-info">Descrição: </label>
+							<input type="text" id="cDescricao" name="descricao" maxlength="25" class="form-control form-control-sm mb-2" required="">
+
+							<div class="d-flex justify-content-between mt-3">
+								<button type="submit" class="btn btn-sm">Cadastrar</button>
+								<a href="{{ route('home') }}" title="Voltar" class="btn btn-sm">Voltar</a>	
+							</div>	
+						</form>
 					</div>		
 				</div>
 			</div>

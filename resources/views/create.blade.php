@@ -4,7 +4,7 @@
 
 @section('content')
 
-	<h2 class="text-center text-danger font-weight-bold mt-5">Cadastro de categoria</h2>
+	<h2 class="text-center text-danger font-weight-bold mt-3">Cadastro de categoria</h2>
 
 	<div class="container-fluid">
 		<div class="row">

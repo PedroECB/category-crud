@@ -44,8 +44,8 @@
               <div class="d-flex justify-content-between align-items-center w-100">
                 <strong class="text-gray-dark">{{$categoria->categoria}}</strong>
                 <div>
-                  <button type="button" class="btn btn-sm btn-info"> <i class="fa fa-eye"></i></button>
-                  <button type="button" class="btn btn-sm btn-warning font-weight-bold">Editar</button>
+                  <a href="{{route('show',$categoria->id)}}" class="btn btn-sm btn-info"> <i class="fa fa-eye"></i></a>
+                  <a href="{{route('edit', $categoria->id)}}" class="btn btn-sm btn-warning font-weight-bold"  class="btn btn-sm btn-warning font-weight-bold">Editar</a>
                  <form action="{{route('destroy', $categoria->id)}}" style="display:inline;" method="POST">
                    @method('delete')
                    @csrf
@@ -60,6 +60,10 @@
           </div>
             
         @endforeach
+
+        @if(empty($categorias))
+          <h3 class="text-center text-warning">Nenhuma categoria cadastrada</h3>
+        @endif
 
         <small class="d-block text-right mt-3">
           <a href="#">@PedroECB</a>

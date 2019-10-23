@@ -19,6 +19,29 @@ class CategoriaController extends Controller
     	return view('create');
     }
 
+    public function showw($id)
+    {
+        $categoria = Categoria::find($id);
+        return view('show', ["categoria"=>$categoria]);
+    }
+
+    public function edit($id)
+    {
+        $categoria = Categoria::find($id);
+        return view('edit',["categoria"=>$categoria]);
+    }
+
+    public function update(Request $request, $id)
+    {   
+        $categoria = $request->input('categoria');
+        $descricao = $request->input('descricao');
+
+        Categoria::where('id', $id)->update(['categoria'=>$categoria, 'descricao'=>$descricao]);
+        
+        $categoria = Categoria::find($id);
+        return view('edit', ["success"=>"As alterações foram salvas com sucesso", "categoria"=>$categoria]);
+    }
+
     public function storage(Request $request)
     {
         $category = new Categoria();

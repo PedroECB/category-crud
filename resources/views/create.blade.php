@@ -15,6 +15,11 @@
 						<h5 class="card-title font-weight-bold text-muted text-center">Nova categoria</h5>
 					</div>
 					<div class="card-body">
+						@if(isset($success))
+								@component('components.success')
+									{{$success}}
+								@endcomponent
+						@endif
 						<form action="{{ route('storage') }}" method="POST" accept-charset="utf-8">
 							@csrf
 							<label for="cCategoria" class="font-weight-bold mb-0 text-info">Categoria: </label>

@@ -19,3 +19,5 @@ Route::get('/create', 'CategoriaController@create')->name('create');
 
 
 Route::post('/create', 'CategoriaController@storage')->name('storage');
+
+Route::delete('categorias/{id}', 'CategoriaController@destroy')->name('destroy');

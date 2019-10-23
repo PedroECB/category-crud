@@ -9,10 +9,11 @@ class CategoriaController extends Controller
 {
     public function index()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::orderBy('id','desc')->get();
 
         return view('index', ["categorias"=>$categorias]);
     }
+
 
     public function create()
     {
@@ -25,11 +26,13 @@ class CategoriaController extends Controller
         return view('show', ["categoria"=>$categoria]);
     }
 
+
     public function edit($id)
     {
         $categoria = Categoria::find($id);
         return view('edit',["categoria"=>$categoria]);
     }
+
 
     public function update(Request $request, $id)
     {   
@@ -42,6 +45,7 @@ class CategoriaController extends Controller
         return view('edit', ["success"=>"As alterações foram salvas com sucesso", "categoria"=>$categoria]);
     }
 
+
     public function storage(Request $request)
     {
         $category = new Categoria();
@@ -52,10 +56,11 @@ class CategoriaController extends Controller
         return view('create', ['success'=>'Categoria cadastrada com sucesso']);  
     }
 
+
     public function destroy($id)
     {
         Categoria::where('id', $id)->delete();
-        $categorias = Categoria::all();
-        return view('index', ["categorias"=>$categorias]);
+        $categorias = Categoria::orderBy('id','desc')->get();
+        return redirect('/');
     }
 }
